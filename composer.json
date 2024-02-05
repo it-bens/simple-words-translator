@@ -43,13 +43,6 @@
       "ITB\\SimpleWordsTranslator\\Tests\\": "tests/"
     }
   },
-  "extra": {
-    "phpstan": {
-      "includes": [
-        "extension.neon"
-      ]
-    }
-  },
   "scripts": {
     "check-style": "./vendor/bin/ecs --config=ecs.php check src tests",
     "lint-style": "./vendor/bin/ecs --config=ecs.php check src tests --fix",
