@@ -35,7 +35,7 @@ jobs:
         run: composer update --no-interaction --no-ansi --no-progress
 
       - name: Run ECS
-        run: composer check-style
+        run: ./vendor/bin/ecs --config=ecs.php check src tests
 
   static-analysis:
     name: Static analysis (PHPStan)
@@ -60,8 +60,8 @@ jobs:
       - name: Update dependencies with composer
         run: composer update --no-interaction --no-ansi --no-progress
 
-      - name: Run Static Analysis
-        run: composer static-analysis
+      - name: Run PHPStan
+        run: ./vendor/bin/phpstan analyse --configuration phpstan.neon
 
   unit-tests:
     name: Unit tests
@@ -87,4 +87,12 @@ jobs:
         run: composer update --no-interaction --no-ansi --no-progress
 
       - name: Run PHPUnit
-        run: XDEBUG_MODE=coverage composer unit-test
+        run: XDEBUG_MODE=coverage ./vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-clover ./coverage.xml
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage.xml
+          verbose: true
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
