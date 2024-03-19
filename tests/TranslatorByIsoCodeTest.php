@@ -55,34 +55,34 @@ final class TranslatorByIsoCodeTest extends TestCase
     }
 
     #[DataProvider('noProvider')]
-    public function testNo(TranslatorByIsoCode $translator, string $languageName, string $expectedTranslation): void
+    public function testNo(TranslatorByIsoCode $translator, string $languageIsoCode, string $expectedTranslation): void
     {
-        $translation = $translator->no($languageName);
+        $translation = $translator->no($languageIsoCode);
 
         $this->assertSame($expectedTranslation, $translation);
     }
 
     #[DataProvider('noThrowsExceptionWhenNoTranslationFoundProvider')]
-    public function testNoThrowsExceptionWhenNoTranslationFound(TranslatorByIsoCode $translator, string $languageName): void
+    public function testNoThrowsExceptionWhenNoTranslationFound(TranslatorByIsoCode $translator, string $languageIsoCode): void
     {
         $this->expectException(NoTranslationFoundForIsoCodeException::class);
 
-        $translator->no($languageName);
+        $translator->no($languageIsoCode);
     }
 
     #[DataProvider('yesProvider')]
-    public function testYes(TranslatorByIsoCode $translator, string $languageName, string $expectedTranslation): void
+    public function testYes(TranslatorByIsoCode $translator, string $languageIsoCode, string $expectedTranslation): void
     {
-        $translation = $translator->yes($languageName);
+        $translation = $translator->yes($languageIsoCode);
 
         $this->assertSame($expectedTranslation, $translation);
     }
 
     #[DataProvider('yesThrowsExceptionWhenNoTranslationFoundProvider')]
-    public function testYesThrowsExceptionWhenNoTranslationFound(TranslatorByIsoCode $translator, string $languageName): void
+    public function testYesThrowsExceptionWhenNoTranslationFound(TranslatorByIsoCode $translator, string $languageIsoCode): void
     {
         $this->expectException(NoTranslationFoundForIsoCodeException::class);
 
-        $translator->yes($languageName);
+        $translator->yes($languageIsoCode);
     }
 }
