@@ -20,6 +20,14 @@ final class TranslatorByIsoCodeTest extends TestCase
         yield '"De"' => [$translator, 'De', 'Nein'];
         yield '"en"' => [$translator, 'en', 'No'];
         yield '"En"' => [$translator, 'En', 'No'];
+        yield '"fr"' => [$translator, 'fr', 'Non'];
+        yield '"Fr"' => [$translator, 'Fr', 'Non'];
+        yield '"es"' => [$translator, 'es', 'No'];
+        yield '"Es"' => [$translator, 'Es', 'No'];
+        yield '"it"' => [$translator, 'it', 'No'];
+        yield '"It"' => [$translator, 'It', 'No'];
+        yield '"nl"' => [$translator, 'nl', 'Nee'];
+        yield '"Nl"' => [$translator, 'Nl', 'Nee'];
     }
 
     public static function noThrowsExceptionWhenNoTranslationFoundProvider(): Generator
@@ -38,6 +46,14 @@ final class TranslatorByIsoCodeTest extends TestCase
         yield '"De"' => [$translator, 'De', 'Ja'];
         yield '"en"' => [$translator, 'en', 'Yes'];
         yield '"En"' => [$translator, 'En', 'Yes'];
+        yield '"fr"' => [$translator, 'fr', 'Oui'];
+        yield '"Fr"' => [$translator, 'Fr', 'Oui'];
+        yield '"es"' => [$translator, 'es', 'Sí'];
+        yield '"Es"' => [$translator, 'Es', 'Sí'];
+        yield '"it"' => [$translator, 'it', 'Sì'];
+        yield '"It"' => [$translator, 'It', 'Sì'];
+        yield '"nl"' => [$translator, 'nl', 'Ja'];
+        yield '"Nl"' => [$translator, 'Nl', 'Ja'];
     }
 
     public static function yesThrowsExceptionWhenNoTranslationFoundProvider(): Generator

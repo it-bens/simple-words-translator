@@ -37,3 +37,7 @@ The package provides interfaces for the two translators. All translations implem
 
 * German
 * English
+* Spanish
+* French
+* Italian
+* Dutch

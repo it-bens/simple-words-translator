@@ -7,6 +7,10 @@ namespace ITB\SimpleWordsTranslator;
 use ITB\SimpleWordsTranslator\Exception\NoTranslationFoundForNameException;
 use ITB\SimpleWordsTranslator\Translation\De;
 use ITB\SimpleWordsTranslator\Translation\En;
+use ITB\SimpleWordsTranslator\Translation\Es;
+use ITB\SimpleWordsTranslator\Translation\Fr;
+use ITB\SimpleWordsTranslator\Translation\It;
+use ITB\SimpleWordsTranslator\Translation\Nl;
 
 final class TranslatorByName implements TranslatorByNameInterface
 {
@@ -17,6 +21,10 @@ final class TranslatorByName implements TranslatorByNameInterface
         $this->nameToTranslationMap = [
             De::name() => new De(),
             En::name() => new En(),
+            Es::name() => new Es(),
+            Fr::name() => new Fr(),
+            It::name() => new It(),
+            Nl::name() => new Nl(),
         ];
     }
 

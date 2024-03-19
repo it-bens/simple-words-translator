@@ -7,6 +7,10 @@ namespace ITB\SimpleWordsTranslator;
 use ITB\SimpleWordsTranslator\Exception\NoTranslationFoundForIsoCodeException;
 use ITB\SimpleWordsTranslator\Translation\De;
 use ITB\SimpleWordsTranslator\Translation\En;
+use ITB\SimpleWordsTranslator\Translation\Es;
+use ITB\SimpleWordsTranslator\Translation\Fr;
+use ITB\SimpleWordsTranslator\Translation\It;
+use ITB\SimpleWordsTranslator\Translation\Nl;
 
 final class TranslatorByIsoCode implements TranslatorByIsoCodeInterface
 {
@@ -17,6 +21,10 @@ final class TranslatorByIsoCode implements TranslatorByIsoCodeInterface
         $this->isoCodeToTranslationMap = [
             De::isoCode() => new De(),
             En::isoCode() => new En(),
+            Es::isoCode() => new Es(),
+            Fr::isoCode() => new Fr(),
+            It::isoCode() => new It(),
+            Nl::isoCode() => new Nl(),
         ];
     }
 
