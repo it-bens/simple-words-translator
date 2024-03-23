@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use PhpCsFixer\Fixer\Phpdoc\GeneralPhpdocAnnotationRemoveFixer;
 use Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer;
 use Symplify\CodingStandard\Fixer\Spacing\StandaloneLinePromotedPropertyFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
@@ -16,6 +17,9 @@ return static function (ECSConfig $ecsConfig): void {
     $ecsConfig->import(SetList::PSR_12);
     $ecsConfig->import(SetList::DOCTRINE_ANNOTATIONS);
 
+    $ecsConfig->ruleWithConfiguration(GeneralPhpdocAnnotationRemoveFixer::class, [
+        'annotations' => ['author', 'package', 'group', 'covers', 'category']
+    ]);
     $ecsConfig->ruleWithConfiguration(LineLengthFixer::class, [
         LineLengthFixer::LINE_LENGTH => 140,
     ]);
